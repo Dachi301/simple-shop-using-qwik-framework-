@@ -5,10 +5,14 @@ import { APP_TITLE } from '~/utils/constants'
 
 export default component$(() => {
   return (
-    <>
+    <div class={'w-full'}>
       <Header />
-      <div class={'relative flex h-full w-full items-center justify-center'}>
-        <div class={'relative'}>
+      <div
+        class={
+          'relative flex h-full w-full flex-col items-center justify-center'
+        }
+      >
+        <div class={'relative mb-[80px]'}>
           <input
             type={'text'}
             class={
@@ -20,8 +24,25 @@ export default component$(() => {
             search
           </span>
         </div>
+        <div class={'grid w-[80%] grid-cols-4 gap-x-[10px] gap-y-[30px]'}>
+          <div
+            class={'h-[450px] w-[300px] rounded-[10px] border border-[black]'}
+          ></div>
+          <div
+            class={'h-[450px] w-[300px] rounded-[10px] border border-[black]'}
+          ></div>
+          <div
+            class={'h-[450px] w-[300px] rounded-[10px] border border-[black]'}
+          ></div>
+          <div
+            class={'h-[450px] w-[300px] rounded-[10px] border border-[black]'}
+          ></div>
+          <div
+            class={'h-[450px] w-[300px] rounded-[10px] border border-[black]'}
+          ></div>
+        </div>
       </div>
-    </>
+    </div>
   )
 })
 
