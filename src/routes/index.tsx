@@ -26,14 +26,13 @@ export default component$(() => {
           </span>
         </div>
         <div
-          class={
-            'flex w-full flex-row flex-wrap items-center justify-between gap-[15px] px-[10px]'
-          }
+          class={'grid w-full grid-cols-4 gap-x-[30px] gap-y-[30px] px-[30px]'}
         >
           <Card title='text1' body='loremdoasfoasdkfo' />
           <Card title='text2' body='lorem2' />
           <Card title='text3' body='lorem3' />
           <Card title='text4' body='lorem4' />
+          <Card title='text5' body='lorem5' />
         </div>
       </div>
     </div>

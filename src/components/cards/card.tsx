@@ -9,10 +9,13 @@ const Card = component$(({ title, body }: PropsTypes) => {
   return (
     <div
       class={
-        'flex w-[23%] flex-col gap-[10px] rounded-[10px] border border-[black] p-[10px]'
+        'flex w-full flex-col gap-[10px] rounded-[10px] border border-[black] p-[10px]'
       }
     >
-      <img src='https://w0.peakpx.com/wallpaper/203/1010/HD-wallpaper-forest-flora-forest-vithurshan-dark-europe-faded-green-leaf-mood-moody-sri-lanka-vithurshan-jpeg-wood.jpg' />
+      <img
+        class={'h-[550px] w-full'}
+        src='https://w0.peakpx.com/wallpaper/203/1010/HD-wallpaper-forest-flora-forest-vithurshan-dark-europe-faded-green-leaf-mood-moody-sri-lanka-vithurshan-jpeg-wood.jpg'
+      />
       <h1 class={'text-center'}>{title}</h1>
       <p class={'font text-[12px] font-[200]'}>{body}</p>
       <div class={'flex items-center justify-center'}>
