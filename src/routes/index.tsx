@@ -8,13 +8,13 @@ import { v4 as uuidv4 } from 'uuid'
 // Comps
 import Card from '~/components/cards/card'
 import Header from '~/components/header/header'
+import { Button } from '~/components/button'
 
 // Image imports
 import Ps5Img from '../images/ps5.jpg'
 import NikeImg from '../images/nike.jpg'
 import NatureImg from '../images/nature.jpg'
 import GoatImg from '../images/goat.jpg'
-import { Button } from '~/components/button'
 
 interface CardProps {
   id: number
