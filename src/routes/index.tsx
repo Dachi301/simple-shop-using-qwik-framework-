@@ -26,7 +26,9 @@ export default component$(() => {
           </span>
         </div>
         <div
-          class={'flex w-full flex-row items-center justify-around px-[20px]'}
+          class={
+            'flex w-full flex-row flex-wrap items-center justify-between gap-[15px] px-[10px]'
+          }
         >
           <Card title='text1' body='loremdoasfoasdkfo' />
           <Card title='text2' body='lorem2' />
