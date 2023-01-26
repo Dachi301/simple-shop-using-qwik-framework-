@@ -1,5 +1,6 @@
 import { component$ } from '@builder.io/qwik'
 import type { DocumentHead } from '@builder.io/qwik-city'
+import Card from '~/components/cards/card'
 import Header from '~/components/header/header'
 import { APP_TITLE } from '~/utils/constants'
 
@@ -24,22 +25,13 @@ export default component$(() => {
             search
           </span>
         </div>
-        <div class={'grid w-[80%] grid-cols-4 gap-x-[10px] gap-y-[30px]'}>
-          <div
-            class={'h-[450px] w-[300px] rounded-[10px] border border-[black]'}
-          ></div>
-          <div
-            class={'h-[450px] w-[300px] rounded-[10px] border border-[black]'}
-          ></div>
-          <div
-            class={'h-[450px] w-[300px] rounded-[10px] border border-[black]'}
-          ></div>
-          <div
-            class={'h-[450px] w-[300px] rounded-[10px] border border-[black]'}
-          ></div>
-          <div
-            class={'h-[450px] w-[300px] rounded-[10px] border border-[black]'}
-          ></div>
+        <div
+          class={'flex w-full flex-row items-center justify-around px-[20px]'}
+        >
+          <Card title='text1' body='loremdoasfoasdkfo' />
+          <Card title='text2' body='lorem2' />
+          <Card title='text3' body='lorem3' />
+          <Card title='text4' body='lorem4' />
         </div>
       </div>
     </div>
