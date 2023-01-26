@@ -13,7 +13,7 @@ export default component$(() => {
           'relative flex h-full w-full flex-col items-center justify-center'
         }
       >
-        <div class={'relative mb-[80px]'}>
+        <div class={'relative mb-[50px]'}>
           <input
             type={'text'}
             class={
