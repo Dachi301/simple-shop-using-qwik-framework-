@@ -41,6 +41,7 @@
     "@storybook/testing-library": "0.0.13",
     "@types/eslint": "8.4.7",
     "@types/node": "18.11.3",
+    "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "5.40.1",
     "@typescript-eslint/parser": "5.40.1",
     "@vitest/coverage-c8": "^0.24.3",
@@ -61,6 +62,7 @@
     "vitest": "^0.24.3"
   },
   "dependencies": {
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "uuid": "^9.0.0"
   }
 }
