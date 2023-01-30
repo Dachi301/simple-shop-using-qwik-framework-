@@ -1,4 +1,4 @@
-import { component$, useStore } from '@builder.io/qwik'
+import { component$, useStore, useWatch$ } from '@builder.io/qwik'
 import { useLocation } from '@builder.io/qwik-city'
 
 // Component
@@ -15,7 +15,7 @@ export default component$(() => {
   const item = Items.filter((item: any, i: any) => item.id === Number(id))
   const state = useStore({
     count: 1,
-    itemPrice: item[0].price,
+    itemPrice: item[0]?.price,
   })
 
   return (
@@ -29,7 +29,7 @@ export default component$(() => {
             <div class={'pl-[10px]'}>
               <p class={'mb-[20px] text-[22px]'}>{item[0].body}</p>
               <div class={'flex flex-col gap-[15px]'}>
-                <p class={'text-[22px]'}>{item[0].price} ₾</p>
+                <p class={'text-[22px]'}>{state.itemPrice} ₾</p>
                 <div class={'flex items-center gap-[20px]'}>
                   <button
                     class={
