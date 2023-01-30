@@ -1,4 +1,4 @@
-import { component$, useClientEffect$ } from '@builder.io/qwik'
+import { component$, useStore } from '@builder.io/qwik'
 import { useLocation } from '@builder.io/qwik-city'
 
 // Component
@@ -8,17 +8,21 @@ import Items from '~/data/items'
 export default component$(() => {
   const location = useLocation()
   const id = location.params.itemId
-  const item = Items.filter((item: any, i: any) => item.id === Number(id))
 
-  useClientEffect$(() => {
-    console.log(item[0].imgSrc)
+  // State
+
+  // Getting data
+  const item = Items.filter((item: any, i: any) => item.id === Number(id))
+  const state = useStore({
+    count: 1,
+    itemPrice: item[0].price,
   })
 
   return (
     <div>
       <Header />
       <div class={'px-[30px]'}>
-        <div class={'flex gap-[50px]'}>
+        <div class={'flex gap-[100px]'}>
           <img src={item[0]?.imgSrc} class={'h-[500px] object-cover'} />
           <div class={'flex flex-col'}>
             <h1 class={'text-[7em]'}>{item[0].title}</h1>
@@ -29,16 +33,31 @@ export default component$(() => {
                 <div class={'flex items-center gap-[20px]'}>
                   <button
                     class={
-                      'rounded-[10px] bg-[gray] py-[10px] px-[20px] text-[25px]'
+                      'rounded-[10px] bg-[gray] py-[10px] px-[20px] text-[25px] outline-0'
                     }
+                    onClick$={() => {
+                      state.count += 1
+                      state.itemPrice += (item[0].price * 2) / 2
+                      console.log(state.itemPrice)
+                    }}
                   >
                     +
                   </button>
-                  <p>1</p>
+                  <p>{state.count}</p>
                   <button
                     class={
-                      'rounded-[10px] bg-[gray] py-[10px] px-[20px] text-[25px]'
+                      'rounded-[10px] bg-[gray] py-[10px] px-[20px] text-[25px] outline-0'
                     }
+                    onClick$={() => {
+                      state.count === 1 ? (state.count = 1) : state.count--
+                      if (state.itemPrice === item[0].price) {
+                        state.itemPrice = item[0].price
+                      } else {
+                        state.itemPrice -= (item[0].price * 2) / 2
+                      }
+
+                      console.log(state.itemPrice)
+                    }}
                   >
                     -
                   </button>

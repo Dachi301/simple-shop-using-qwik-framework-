@@ -1,4 +1,4 @@
-import { component$, useClientEffect$ } from '@builder.io/qwik'
+import { component$ } from '@builder.io/qwik'
 import { DocumentHead, useNavigate } from '@builder.io/qwik-city'
 import { APP_TITLE } from '~/utils/constants'
 

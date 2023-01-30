@@ -12,7 +12,7 @@ const Items: CardProps = [
     title: 'PS5',
     body: 'Lorem ipsum dolor, sit amet elit asdfasfg',
     imgSrc: '/src/images/ps5.jpg',
-    price: 2123,
+    price: 50,
   },
   {
     id: 2,
