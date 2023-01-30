@@ -10,7 +10,7 @@ import Header from '~/components/header/header'
 import { Button } from '~/components/button'
 
 export default component$(() => {
-  const state = useStore({ searchTerm: '' })
+  const state = useStore({ searchTerm: '', bool: false })
   const nav = useNavigate()
 
   const truncate = (str: string, n: number) => {
@@ -23,6 +23,12 @@ export default component$(() => {
 
   const handleChange$ = $((e: any) => {
     state.searchTerm = e.target.value
+
+    if (state.searchTerm) {
+      state.bool = true
+    } else {
+      state.bool = false
+    }
   })
 
   return (
@@ -40,7 +46,8 @@ export default component$(() => {
               'h-[60px] w-[700px] rounded-[10px] border-2 border-[#e7c128] pl-[20px] pr-[50px] text-[20px] outline-0'
             }
             placeholder='...'
-            onChange$={handleChange$}
+            onInput$={handleChange$}
+            value={state.searchTerm}
           />
           <span class='material-symbols-outlined absolute top-[16px] right-[20px]'>
             search
@@ -49,7 +56,8 @@ export default component$(() => {
         <div
           class={'grid w-full grid-cols-4 gap-x-[30px] gap-y-[30px] px-[30px]'}
         >
-          {Array.isArray(Items) &&
+          {!state.bool &&
+            Array.isArray(Items) &&
             Items.map((item: any) => (
               <Card
                 title={item.title}
@@ -64,7 +72,31 @@ export default component$(() => {
               </Card>
             ))}
 
-          {/* {Array.isArray(Items) && Items.filter()} */}
+          {state.bool &&
+            Array.isArray(Items) &&
+            Items.filter((item: any) => {
+              if (!state.searchTerm) {
+                return ''
+              } else if (
+                item['title']
+                  .toLowerCase()
+                  .includes(state.searchTerm.toLowerCase())
+              ) {
+                return item['title']
+              }
+            }).map((item: any) => (
+              <Card
+                title={item.title}
+                body={truncate(item.body, 75)}
+                imgSrc={`${item.imgSrc}`}
+              >
+                <Button
+                  action$={() => {
+                    nav.path = `/item/${item.id}`
+                  }}
+                />
+              </Card>
+            ))}
         </div>
       </div>
     </div>
