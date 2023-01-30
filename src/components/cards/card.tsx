@@ -18,7 +18,7 @@ const Card = component$(({ title, body, imgSrc, price }: PropsTypes) => {
       >
         <img class={'aspect-[3/2.5] h-full object-cover'} src={imgSrc} />
         <h1 class={'text-center text-[20px]'}>{title}</h1>
-        <p class={'text-[15px]'}>{body}</p>
+        <p class={'text-[13px]'}>{body}</p>
         <p class={'text-[22px]'}>ფასი: {price}₾</p>
         <div class={'flex items-center justify-center'}>
           <Slot />

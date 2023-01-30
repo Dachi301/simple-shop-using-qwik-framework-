@@ -10,7 +10,7 @@ import Header from '~/components/header/header'
 import { Button } from '~/components/button'
 
 export default component$(() => {
-  const state = useStore({ searchTerm: '', showItems: true })
+  const state = useStore({ searchTerm: '', showItems: 0 })
   const nav = useNavigate()
 
   const truncate = (str: string, n: number) => {
@@ -25,9 +25,9 @@ export default component$(() => {
     state.searchTerm = e.target.value
 
     if (state.searchTerm) {
-      state.showItems = false
+      state.showItems = 1
     } else {
-      state.showItems = true
+      state.showItems = 0
     }
   })
 
@@ -56,7 +56,7 @@ export default component$(() => {
       Array.isArray(Items) &&
       Items.filter((item: any) => {
         if (!state.searchTerm) {
-          return ''
+          console.log('')
         } else if (
           item['title'].toLowerCase().includes(state.searchTerm.toLowerCase())
         ) {
@@ -104,9 +104,9 @@ export default component$(() => {
         <div
           class={'grid w-full grid-cols-4 gap-x-[30px] gap-y-[30px] px-[30px]'}
         >
-          {state.showItems && fetchItems()}
+          {state.showItems === 0 && fetchItems()}
 
-          {!state.showItems && filterItems()}
+          {state.showItems === 1 && filterItems()}
         </div>
       </div>
     </div>
