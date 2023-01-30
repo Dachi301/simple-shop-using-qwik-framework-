@@ -12,7 +12,11 @@ export default component$(() => {
   // State
 
   // Getting data
-  const item = Items.filter((item: any) => item.id === Number(id))
+  const item = Array.isArray(Items)
+    ? Items.filter((item: any) => item.id === Number(id))
+    : ''
+
+  //
   const state = useStore({
     count: 1,
     itemPrice: item[0]?.price,

@@ -1,4 +1,4 @@
-import { component$ } from '@builder.io/qwik'
+import { component$, useStore, $ } from '@builder.io/qwik'
 import { DocumentHead, useNavigate } from '@builder.io/qwik-city'
 import { APP_TITLE } from '~/utils/constants'
 
@@ -10,6 +10,7 @@ import Header from '~/components/header/header'
 import { Button } from '~/components/button'
 
 export default component$(() => {
+  const state = useStore({ searchTerm: '' })
   const nav = useNavigate()
 
   const truncate = (str: string, n: number) => {
@@ -19,6 +20,10 @@ export default component$(() => {
     }
     return shortText
   }
+
+  const handleChange$ = $((e: any) => {
+    state.searchTerm = e.target.value
+  })
 
   return (
     <div class={'mb-[20px] w-full'}>
@@ -35,6 +40,7 @@ export default component$(() => {
               'h-[60px] w-[700px] rounded-[10px] border-2 border-[#e7c128] pl-[20px] pr-[50px] text-[20px] outline-0'
             }
             placeholder='...'
+            onChange$={handleChange$}
           />
           <span class='material-symbols-outlined absolute top-[16px] right-[20px]'>
             search
@@ -57,6 +63,8 @@ export default component$(() => {
                 />
               </Card>
             ))}
+
+          {/* {Array.isArray(Items) && Items.filter()} */}
         </div>
       </div>
     </div>
