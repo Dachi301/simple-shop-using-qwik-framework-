@@ -39,6 +39,7 @@ export default component$(() => {
           title={item.title}
           body={truncate(item.body, 75)}
           imgSrc={`${item.imgSrc}`}
+          price={item.price}
         >
           <Button
             action$={() => {
