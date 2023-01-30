@@ -12,7 +12,7 @@ export default component$(() => {
   // State
 
   // Getting data
-  const item = Items.filter((item: any, i: any) => item.id === Number(id))
+  const item = Items.filter((item: any) => item.id === Number(id))
   const state = useStore({
     count: 1,
     itemPrice: item[0]?.price,
@@ -37,8 +37,7 @@ export default component$(() => {
                     }
                     onClick$={() => {
                       state.count += 1
-                      state.itemPrice += (item[0].price * 2) / 2
-                      console.log(state.itemPrice)
+                      state.itemPrice += item[0].price
                     }}
                   >
                     +
@@ -53,10 +52,8 @@ export default component$(() => {
                       if (state.itemPrice === item[0].price) {
                         state.itemPrice = item[0].price
                       } else {
-                        state.itemPrice -= (item[0].price * 2) / 2
+                        state.itemPrice -= item[0].price
                       }
-
-                      console.log(state.itemPrice)
                     }}
                   >
                     -

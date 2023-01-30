@@ -33,7 +33,7 @@ const Items: CardProps = [
     title: 'Messi',
     body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit yyyt5 hnbret asFSDsd asd as',
     imgSrc: '/src/images/goat.jpg',
-    price: 9999,
+    price: 10,
   },
 ]
 
