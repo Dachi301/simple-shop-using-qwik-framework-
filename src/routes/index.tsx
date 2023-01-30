@@ -10,7 +10,7 @@ import Header from '~/components/header/header'
 import { Button } from '~/components/button'
 
 export default component$(() => {
-  const state = useStore({ searchTerm: '', bool: false })
+  const state = useStore({ searchTerm: '', showItems: true })
   const nav = useNavigate()
 
   const truncate = (str: string, n: number) => {
@@ -25,11 +25,57 @@ export default component$(() => {
     state.searchTerm = e.target.value
 
     if (state.searchTerm) {
-      state.bool = true
+      state.showItems = false
     } else {
-      state.bool = false
+      state.showItems = true
     }
   })
+
+  const fetchItems = () => {
+    return (
+      Array.isArray(Items) &&
+      Items.map((item: any) => (
+        <Card
+          title={item.title}
+          body={truncate(item.body, 75)}
+          imgSrc={`${item.imgSrc}`}
+        >
+          <Button
+            action$={() => {
+              nav.path = `/item/${item.id}`
+            }}
+          />
+        </Card>
+      ))
+    )
+  }
+
+  const filterItems = () => {
+    return (
+      Array.isArray(Items) &&
+      Items.filter((item: any) => {
+        if (!state.searchTerm) {
+          return ''
+        } else if (
+          item['title'].toLowerCase().includes(state.searchTerm.toLowerCase())
+        ) {
+          return item['title']
+        }
+      }).map((item: any) => (
+        <Card
+          title={item.title}
+          body={truncate(item.body, 75)}
+          imgSrc={`${item.imgSrc}`}
+        >
+          <Button
+            action$={() => {
+              nav.path = `/item/${item.id}`
+            }}
+          />
+        </Card>
+      ))
+    )
+  }
 
   return (
     <div class={'mb-[20px] w-full'}>
@@ -56,47 +102,9 @@ export default component$(() => {
         <div
           class={'grid w-full grid-cols-4 gap-x-[30px] gap-y-[30px] px-[30px]'}
         >
-          {!state.bool &&
-            Array.isArray(Items) &&
-            Items.map((item: any) => (
-              <Card
-                title={item.title}
-                body={truncate(item.body, 75)}
-                imgSrc={`${item.imgSrc}`}
-              >
-                <Button
-                  action$={() => {
-                    nav.path = `/item/${item.id}`
-                  }}
-                />
-              </Card>
-            ))}
+          {state.showItems && fetchItems()}
 
-          {state.bool &&
-            Array.isArray(Items) &&
-            Items.filter((item: any) => {
-              if (!state.searchTerm) {
-                return ''
-              } else if (
-                item['title']
-                  .toLowerCase()
-                  .includes(state.searchTerm.toLowerCase())
-              ) {
-                return item['title']
-              }
-            }).map((item: any) => (
-              <Card
-                title={item.title}
-                body={truncate(item.body, 75)}
-                imgSrc={`${item.imgSrc}`}
-              >
-                <Button
-                  action$={() => {
-                    nav.path = `/item/${item.id}`
-                  }}
-                />
-              </Card>
-            ))}
+          {!state.showItems && filterItems()}
         </div>
       </div>
     </div>
