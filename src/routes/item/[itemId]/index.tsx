@@ -47,7 +47,7 @@ export default component$(() => {
             <div class={'pl-[10px]'}>
               <p class={'mb-[20px] text-[22px]'}>{item[0].body}</p>
               <div class={'flex flex-col gap-[15px]'}>
-                <p class={'text-[22px]'}>{state.itemPrice} ₾</p>
+                <p class={'text-[22px]'}>ფასი: {state.itemPrice} ₾</p>
                 <div class={'flex items-center gap-[20px]'}>
                   <button
                     class={
