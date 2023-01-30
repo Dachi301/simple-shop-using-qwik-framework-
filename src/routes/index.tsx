@@ -37,7 +37,7 @@ export default component$(() => {
       Items.map((item: any) => (
         <Card
           title={item.title}
-          body={truncate(item.body, 75)}
+          body={truncate(item.body, 45)}
           imgSrc={`${item.imgSrc}`}
           price={item.price}
         >
