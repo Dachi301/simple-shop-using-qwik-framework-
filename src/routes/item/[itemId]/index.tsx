@@ -1,4 +1,4 @@
-import { component$, useStore, useWatch$ } from '@builder.io/qwik'
+import { component$, useStore, $ } from '@builder.io/qwik'
 import { useLocation } from '@builder.io/qwik-city'
 
 // Component
@@ -18,6 +18,20 @@ export default component$(() => {
     itemPrice: item[0]?.price,
   })
 
+  const handleIncrement$ = $(() => {
+    state.count += 1
+    state.itemPrice += item[0].price
+  })
+
+  const handleDecrement$ = $(() => {
+    state.count === 1 ? (state.count = 1) : state.count--
+    if (state.itemPrice === item[0].price) {
+      state.itemPrice = item[0].price
+    } else {
+      state.itemPrice -= item[0].price
+    }
+  })
+
   return (
     <div>
       <Header />
@@ -35,10 +49,7 @@ export default component$(() => {
                     class={
                       'rounded-[10px] bg-[gray] py-[10px] px-[20px] text-[25px] outline-0'
                     }
-                    onClick$={() => {
-                      state.count += 1
-                      state.itemPrice += item[0].price
-                    }}
+                    onClick$={handleIncrement$}
                   >
                     +
                   </button>
@@ -47,14 +58,7 @@ export default component$(() => {
                     class={
                       'rounded-[10px] bg-[gray] py-[10px] px-[20px] text-[25px] outline-0'
                     }
-                    onClick$={() => {
-                      state.count === 1 ? (state.count = 1) : state.count--
-                      if (state.itemPrice === item[0].price) {
-                        state.itemPrice = item[0].price
-                      } else {
-                        state.itemPrice -= item[0].price
-                      }
-                    }}
+                    onClick$={handleDecrement$}
                   >
                     -
                   </button>
