@@ -13,14 +13,6 @@ export default component$(() => {
   const state = useStore({ searchTerm: '', showItems: 0 })
   const nav = useNavigate()
 
-  const truncate = (str: string, n: number) => {
-    let shortText = str.length > n ? str.substr(0, n - 1) + '...' : str
-    if (shortText.length < n) {
-      return str.substr(0, n - 1) + '...'
-    }
-    return shortText
-  }
-
   const handleChange$ = $((e: any) => {
     state.searchTerm = e.target.value
 
@@ -35,12 +27,7 @@ export default component$(() => {
     return (
       Array.isArray(Items) &&
       Items.map((item: any) => (
-        <Card
-          title={item.title}
-          body={truncate(item.body, 45)}
-          imgSrc={`${item.imgSrc}`}
-          price={item.price}
-        >
+        <Card title={item.title} imgSrc={`${item.imgSrc}`} price={item.price}>
           <Button
             action$={() => {
               nav.path = `/item/${item.id}`
@@ -63,12 +50,7 @@ export default component$(() => {
           return item['title']
         }
       }).map((item: any) => (
-        <Card
-          title={item.title}
-          body={truncate(item.body, 75)}
-          imgSrc={`${item.imgSrc}`}
-          price={item.price}
-        >
+        <Card title={item.title} imgSrc={`${item.imgSrc}`} price={item.price}>
           <Button
             action$={() => {
               nav.path = `/item/${item.id}`

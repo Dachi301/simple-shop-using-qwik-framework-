@@ -9,14 +9,12 @@ export default component$(() => {
   const location = useLocation()
   const id = location.params.itemId
 
-  // State
-
   // Getting data
   const item = Array.isArray(Items)
     ? Items.filter((item: any) => item.id === Number(id))
     : ''
 
-  //
+  // State
   const state = useStore({
     count: 1,
     itemPrice: item[0]?.price,
@@ -45,7 +43,6 @@ export default component$(() => {
           <div class={'flex flex-col'}>
             <h1 class={'text-[7em]'}>{item[0].title}</h1>
             <div class={'pl-[10px]'}>
-              <p class={'mb-[20px] text-[22px]'}>{item[0].body}</p>
               <div class={'flex flex-col gap-[15px]'}>
                 <p class={'text-[22px]'}>ფასი: {state.itemPrice} ₾</p>
                 <div class={'flex items-center gap-[20px]'}>

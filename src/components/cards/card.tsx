@@ -3,12 +3,11 @@ import Items from '~/data/items'
 
 interface PropsTypes {
   title: string
-  body: string
   imgSrc: string
   price: number
 }
 
-const Card = component$(({ title, body, imgSrc, price }: PropsTypes) => {
+const Card = component$(({ title, imgSrc, price }: PropsTypes) => {
   return (
     <>
       <div
@@ -18,7 +17,6 @@ const Card = component$(({ title, body, imgSrc, price }: PropsTypes) => {
       >
         <img class={'aspect-[3/2.5] h-full object-cover'} src={imgSrc} />
         <h1 class={'text-center text-[20px]'}>{title}</h1>
-        <p class={'text-[14px]'}>{body}</p>
         <p class={'text-[22px]'}>ფასი: {price}₾</p>
         <div class={'flex items-center justify-center'}>
           <Slot />
