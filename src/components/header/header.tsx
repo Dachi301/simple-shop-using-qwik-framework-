@@ -5,7 +5,7 @@ const Header = component$(() => {
   const nav = useNavigate()
   return (
     <>
-      <header class='mb-[50px] flex items-center justify-between bg-[#e7c128] px-[30px] py-[20px]'>
+      <header class='flex items-center justify-between bg-[#e7c128] px-[30px] py-[20px]'>
         <p
           class='cursor-pointer text-[2rem] text-white'
           onClick$={() => {

@@ -6,7 +6,7 @@ import Items from '~/data/items'
 
 // Comps
 import Card from '~/components/cards/card'
-import Header from '~/components/header/header'
+
 import { Button } from '~/components/button'
 
 export default component$(() => {
@@ -44,6 +44,7 @@ export default component$(() => {
       Items.filter((item: any) => {
         if (!state.searchTerm) {
           console.log('')
+          return ''
         } else if (
           item['title'].toLowerCase().includes(state.searchTerm.toLowerCase())
         ) {
@@ -62,14 +63,13 @@ export default component$(() => {
   }
 
   return (
-    <div class={'mb-[20px] w-full'}>
-      <Header />
+    <div class={' w-full'}>
       <div
         class={
           'relative flex h-full w-full flex-col items-center justify-center'
         }
       >
-        <div class={'relative mb-[50px]'}>
+        <div class={'relative mb-[50px] mt-[50px]'}>
           <input
             type={'text'}
             class={

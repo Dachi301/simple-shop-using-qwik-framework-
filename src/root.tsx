@@ -7,6 +7,7 @@ import {
 import { RouterHead } from './components/router-head/router-head'
 
 import './global.css'
+import Header from './components/header/header'
 
 export default component$(() => {
   /**
@@ -30,6 +31,7 @@ export default component$(() => {
         />
       </head>
       <body lang='en'>
+        <Header />
         <RouterOutlet />
         <ServiceWorkerRegister />
       </body>

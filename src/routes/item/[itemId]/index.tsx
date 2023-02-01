@@ -1,8 +1,6 @@
 import { component$, useStore, $ } from '@builder.io/qwik'
 import { useLocation } from '@builder.io/qwik-city'
 
-// Component
-import Header from '~/components/header/header'
 import Items from '~/data/items'
 
 export default component$(() => {
@@ -36,7 +34,6 @@ export default component$(() => {
 
   return (
     <div>
-      <Header />
       <div class={'px-[30px]'}>
         <div class={'flex gap-[100px]'}>
           <img src={item[0]?.imgSrc} class={'h-[500px] object-cover'} />
