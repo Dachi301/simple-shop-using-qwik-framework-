@@ -30,6 +30,13 @@ const Items: CardProps = [
   },
   {
     id: 4,
+    title: 'Ronaldo',
+    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit yyyt5 hnbret asFSDsd asd as',
+    imgSrc: '/src/images/goat.jpg',
+    price: 7,
+  },
+  {
+    id: 5,
     title: 'Messi',
     body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit yyyt5 hnbret asFSDsd asd as',
     imgSrc: '/src/images/goat.jpg',
