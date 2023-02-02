@@ -24,7 +24,7 @@ export default component$(() => {
               <div class={'flex flex-col justify-around'}>
                 <div class={'flex flex-col gap-[10px]'}>
                   <h1 class={'text-[20px] '}>ნივთი: PS5</h1>
-                  <p class={'text-[20px]'}>ფასი: 1900</p>
+                  <p class={'text-[20px]'}>ფასი: 1900₾</p>
                   <p class={'text-[20px] text-green-600'}>რაოდენობა: 2x</p>
                 </div>
                 <button
@@ -63,10 +63,18 @@ export default component$(() => {
             </div>
           </div>
 
-          <div class={'flex flex-col gap-[20px]'}>
+          <div class={'flex flex-col items-start gap-[20px]'}>
             <h1 class={'text-[3rem]'}>კალათა</h1>
             <p class={' text-[1.7rem]'}>ბალანსი: 100₾</p>
             <h1 class={'text-[24px]'}>ნივთები: 2</h1>
+            <p class={'text-[20px]'}>ჯამი: 200₾</p>
+            <button
+              class={
+                'w-full translate-y-0 rounded-[5px] bg-[#e7c128] px-[15px] py-[10px] text-[24px] transition-all active:translate-y-1 '
+              }
+            >
+              შეძენა
+            </button>
           </div>
         </div>
       </div>
