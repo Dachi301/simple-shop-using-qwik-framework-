@@ -13,7 +13,6 @@ export default component$(() => {
     ? Items.filter((item: any) => item.id === Number(id))
     : ''
   const ctxState = useContext(CartContext)
-  const itemIsDisabled = localStorage.getItem('itemIsDisabled') || null
 
   // State
   const state = useStore({
@@ -40,7 +39,7 @@ export default component$(() => {
   const handleClick$ = $(() => {
     state.item = {
       title: item[0].title,
-      numberOfItems: state.count,
+      items: state.count,
       price: state.itemPrice,
       img: item[0]?.imgSrc,
     }
@@ -52,7 +51,6 @@ export default component$(() => {
     console.log(state.item)
     console.log('Your button was clicked and is now disabled')
     console.log(ctxState.cart)
-    console.log(itemIsDisabled)
   })
 
   return (

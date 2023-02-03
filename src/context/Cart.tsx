@@ -15,6 +15,7 @@ export const ContextSetter = component$(() => {
   })
 
   useContextProvider(CartContext, state)
+
   return (
     <>
       <Slot />
