@@ -68,19 +68,21 @@ export default component$(() => {
                   </p>
                   <div class={'flex items-center gap-[20px]'}>
                     <button
-                      class={
-                        'rounded-[10px] bg-[gray] py-[10px] px-[20px] text-[25px] outline-0'
-                      }
+                      class={`rounded-[10px] bg-[gray] py-[10px] px-[20px] text-[25px] outline-0 ${
+                        state.isDisabled && 'opacity-[0.6] active:translate-y-0'
+                      }`}
                       onClick$={handleIncrement$}
+                      disabled={state.isDisabled ? true : false}
                     >
                       +
                     </button>
                     <p>{state.isDisabled ? 1 : state.count}</p>
                     <button
-                      class={
-                        'rounded-[10px] bg-[gray] py-[10px] px-[20px] text-[25px] outline-0'
-                      }
+                      class={`rounded-[10px] bg-[gray] py-[10px] px-[20px] text-[25px] outline-0 ${
+                        state.isDisabled && 'opacity-[0.6] active:translate-y-0'
+                      } `}
                       onClick$={handleDecrement$}
+                      disabled={state.isDisabled ? true : false}
                     >
                       -
                     </button>
@@ -88,7 +90,7 @@ export default component$(() => {
                   <div>
                     <button
                       class={`mt-[20px] flex translate-y-0 justify-start rounded-[10px] bg-[#e7c128] py-[20px] px-[20px] text-[20px] opacity-[1] active:translate-y-1 ${
-                        state.isDisabled && 'opacity-[0.8] active:translate-y-0'
+                        state.isDisabled && 'opacity-[0.6] active:translate-y-0'
                       } transition-all`}
                       onClick$={handleClick$}
                       disabled={state.isDisabled}
