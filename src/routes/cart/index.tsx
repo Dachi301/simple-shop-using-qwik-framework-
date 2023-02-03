@@ -34,7 +34,7 @@ export default component$(() => {
                     }
                   >
                     <img
-                      src={PS5Img}
+                      src={`${item.imgSrc}`}
                       class={'aspect-[3/2] w-[400px] object-contain'}
                     />
 
