@@ -50,6 +50,7 @@ export default component$(() => {
 
     console.log(state.item)
     console.log('Your button was clicked and is now disabled')
+    console.log(ctxState.cart)
   })
 
   return (
@@ -90,7 +91,7 @@ export default component$(() => {
                   <div>
                     <button
                       class={`mt-[20px] flex translate-y-0 justify-start rounded-[10px] bg-[#e7c128] py-[20px] px-[20px] text-[20px] opacity-[1] active:translate-y-1 ${
-                        state.isDisabled && 'opacity-[0.6] active:translate-y-0'
+                        state.isDisabled && 'opacity-[0.7] active:translate-y-0'
                       } transition-all`}
                       onClick$={handleClick$}
                       disabled={state.isDisabled}

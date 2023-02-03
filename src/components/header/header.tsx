@@ -1,4 +1,10 @@
-import { component$, useClientEffect$, useContext } from '@builder.io/qwik'
+import {
+  component$,
+  useClientEffect$,
+  useContext,
+  useWatch$,
+  useResource$,
+} from '@builder.io/qwik'
 import { useNavigate } from '@builder.io/qwik-city'
 import { CartContext } from '~/context/Cart'
 
@@ -6,6 +12,11 @@ const Header = component$(() => {
   const nav = useNavigate()
 
   const state = useContext(CartContext)
+
+  // useResource$(({ track }) => {
+  //   track(state, 'cart')
+  //   console.log(state.cart)
+  // })
 
   return (
     <>
