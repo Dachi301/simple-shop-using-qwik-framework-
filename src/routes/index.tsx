@@ -1,4 +1,10 @@
-import { component$, useStore, $ } from '@builder.io/qwik'
+import {
+  component$,
+  useStore,
+  $,
+  useContext,
+  useClientEffect$,
+} from '@builder.io/qwik'
 import { DocumentHead, useNavigate } from '@builder.io/qwik-city'
 import { APP_TITLE } from '~/utils/constants'
 
@@ -62,6 +68,8 @@ export default component$(() => {
     )
   }
 
+  // const ctxState = useContext(MyContext)
+
   return (
     <div class={' w-full'}>
       <div
@@ -84,7 +92,9 @@ export default component$(() => {
           </span>
         </div>
         <div
-          class={'grid w-full grid-cols-4 gap-x-[30px] gap-y-[30px] px-[30px]'}
+          class={
+            'mb-[50px] grid w-full grid-cols-4 gap-x-[30px] gap-y-[30px] px-[30px]'
+          }
         >
           {state.showItems === 0 && fetchItems()}
 

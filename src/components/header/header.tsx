@@ -1,8 +1,12 @@
-import { component$ } from '@builder.io/qwik'
+import { component$, useClientEffect$, useContext } from '@builder.io/qwik'
 import { useNavigate } from '@builder.io/qwik-city'
+import { CartContext } from '~/context/Cart'
 
 const Header = component$(() => {
   const nav = useNavigate()
+
+  const state = useContext(CartContext)
+
   return (
     <>
       <header class='flex items-center justify-between bg-[#e7c128] px-[30px] py-[20px]'>
@@ -26,7 +30,8 @@ const Header = component$(() => {
               'absolute top-0 left-[-15px] flex h-[20px] w-[20px] cursor-pointer items-center justify-center rounded-[50%] bg-black text-[14px] text-white'
             }
           >
-            0
+            {/* {state} */}
+            {state.cart.length}
           </div>
         </div>
       </header>

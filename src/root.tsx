@@ -8,6 +8,7 @@ import { RouterHead } from './components/router-head/router-head'
 
 import './global.css'
 import Header from './components/header/header'
+import { ContextSetter } from './context/Cart'
 
 export default component$(() => {
   /**
@@ -31,9 +32,11 @@ export default component$(() => {
         />
       </head>
       <body lang='en'>
-        <Header />
-        <RouterOutlet />
-        <ServiceWorkerRegister />
+        <ContextSetter>
+          <Header />
+          <RouterOutlet />
+          <ServiceWorkerRegister />
+        </ContextSetter>
       </body>
     </QwikCityProvider>
   )

@@ -64,7 +64,7 @@ export default component$(() => {
           </div>
 
           <div class={'flex flex-col items-start gap-[20px]'}>
-            <h1 class={'text-[3rem]'}>კალათა</h1>
+            <h1 class={'text-[3rem]'}>კალათა: </h1>
             <p class={' text-[1.7rem]'}>ბალანსი: 100₾</p>
             <h1 class={'text-[24px]'}>ნივთები: 2</h1>
             <p class={'text-[20px]'}>ჯამი: 200₾</p>
