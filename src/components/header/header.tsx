@@ -4,6 +4,7 @@ import {
   useContext,
   useWatch$,
   useResource$,
+  useStore,
 } from '@builder.io/qwik'
 import { useNavigate } from '@builder.io/qwik-city'
 import { CartContext } from '~/context/Cart'
@@ -11,12 +12,7 @@ import { CartContext } from '~/context/Cart'
 const Header = component$(() => {
   const nav = useNavigate()
 
-  const state = useContext(CartContext)
-
-  // useResource$(({ track }) => {
-  //   track(state, 'cart')
-  //   console.log(state.cart)
-  // })
+  const ctxState = useContext(CartContext)
 
   return (
     <>
@@ -31,7 +27,9 @@ const Header = component$(() => {
         </p>
         <div class={'relative'}>
           <p
-            onClick$={() => (nav.path = '/cart')}
+            onClick$={() => {
+              nav.path = '/cart'
+            }}
             class='cursor-pointer text-[2rem] text-white'
           >
             Cart
@@ -42,7 +40,7 @@ const Header = component$(() => {
             }
           >
             {/* {state} */}
-            {state.cart.length}
+            {ctxState.cartLength}
           </div>
         </div>
       </header>

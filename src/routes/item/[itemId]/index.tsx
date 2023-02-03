@@ -12,6 +12,8 @@ export default component$(() => {
   const item = Array.isArray(Items)
     ? Items.filter((item: any) => item.id === Number(id))
     : ''
+  const ctxState = useContext(CartContext)
+  const itemIsDisabled = localStorage.getItem('itemIsDisabled') || null
 
   // State
   const state = useStore({
@@ -20,8 +22,6 @@ export default component$(() => {
     item: {},
     isDisabled: false,
   })
-
-  const ctxState = useContext(CartContext)
 
   const handleIncrement$ = $(() => {
     state.count += 1
@@ -46,11 +46,13 @@ export default component$(() => {
     }
 
     ctxState.cart.push(state.item)
+    ctxState.cartLength += 1
     state.isDisabled = true
 
     console.log(state.item)
     console.log('Your button was clicked and is now disabled')
     console.log(ctxState.cart)
+    console.log(itemIsDisabled)
   })
 
   return (
