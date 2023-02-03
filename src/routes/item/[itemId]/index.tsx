@@ -16,6 +16,7 @@ export default component$(() => {
   const state = useStore({
     count: 1,
     itemPrice: item[0]?.price,
+    item: {},
   })
 
   const handleIncrement$ = $(() => {
@@ -30,6 +31,17 @@ export default component$(() => {
     } else {
       state.itemPrice -= item[0].price
     }
+  })
+
+  const handleClick$ = $(() => {
+    state.item = {
+      title: item[0].title,
+      numberOfItems: state.count,
+      price: state.itemPrice,
+      img: item[0]?.imgSrc,
+    }
+
+    console.log(state.item)
   })
 
   return (
@@ -67,6 +79,7 @@ export default component$(() => {
                       class={
                         'mt-[20px] flex translate-y-0 justify-start rounded-[10px] bg-[#e7c128] py-[20px] px-[20px] text-[20px] transition-all active:translate-y-1'
                       }
+                      onClick$={handleClick$}
                     >
                       დამატება კალათაში
                     </button>
