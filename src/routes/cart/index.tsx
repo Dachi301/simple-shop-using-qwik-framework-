@@ -18,7 +18,7 @@ export default component$(() => {
       >
         <div class={'mt-[50px] flex justify-center gap-[60px]'}>
           {/* card component */}
-          <div class={'flex flex gap-[80px]'}>
+          <div class={'flex flex-col gap-[80px]'}>
             {state.cartLength === 0 ? (
               <div>
                 <h1 class={'h-full w-full text-center text-[3rem]'}>
@@ -30,7 +30,7 @@ export default component$(() => {
                 <div class={'flex gap-[80px]'}>
                   <div
                     class={
-                      'flex w-[700px] gap-[20px] break-all	 border border-black p-[10px]	'
+                      'flex w-[600px] flex-col gap-[20px] break-all	 border border-black p-[10px]	'
                     }
                   >
                     <img
@@ -59,7 +59,7 @@ export default component$(() => {
               ))
             )}
             {state.cartLength !== 0 && (
-              <div class={'flex flex-col items-start gap-[20px]'}>
+              <div class={'mb-[50px] flex flex-col items-start gap-[20px]'}>
                 <h1 class={'text-[3rem]'}>კალათა: </h1>
                 <p class={' text-[1.7rem]'}>ბალანსი: x</p>
                 <h1 class={'text-[24px]'}>ნივთები: {state.cart.length}</h1>
