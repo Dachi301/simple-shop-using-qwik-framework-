@@ -34,8 +34,8 @@ export default component$(() => {
                     }
                   >
                     <img
-                      src={`${item.imgSrc}`}
-                      class={'aspect-[3/2] w-[400px] object-contain'}
+                      src={item.img}
+                      class={'aspect-[3/2] w-full object-contain'}
                     />
 
                     <div class={'flex flex-col justify-around'}>
