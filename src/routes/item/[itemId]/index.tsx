@@ -1,4 +1,10 @@
-import { component$, useStore, $, useContext } from '@builder.io/qwik'
+import {
+  component$,
+  useStore,
+  $,
+  useContext,
+  useClientEffect$,
+} from '@builder.io/qwik'
 import { useLocation } from '@builder.io/qwik-city'
 import { CartContext } from '~/context/Cart'
 
@@ -38,6 +44,7 @@ export default component$(() => {
 
   const handleClick$ = $(() => {
     state.item = {
+      id: item[0].id,
       title: item[0].title,
       items: state.count,
       price: state.itemPrice,
@@ -46,11 +53,21 @@ export default component$(() => {
 
     ctxState.cart.push(state.item)
     ctxState.cartLength += 1
-    state.isDisabled = true
+    ctxState.cart.forEach((element: any) => {
+      if (element.id === item[0].id) {
+        state.isDisabled = true
+      }
+    })
 
     console.log(state.item)
-    console.log('Your button was clicked and is now disabled')
-    console.log(ctxState.cart)
+  })
+
+  useClientEffect$(() => {
+    ctxState.cart.forEach((element: any) => {
+      if (element.id === item[0].id) {
+        state.isDisabled = true
+      }
+    })
   })
 
   return (
