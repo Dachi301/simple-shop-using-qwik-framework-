@@ -68,8 +68,6 @@ export default component$(() => {
     )
   }
 
-  // const ctxState = useContext(MyContext)
-
   return (
     <div class={' w-full'}>
       <div

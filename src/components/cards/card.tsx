@@ -1,10 +1,4 @@
-import {
-  Slot,
-  component$,
-  useClientEffect$,
-  useContext,
-} from '@builder.io/qwik'
-import Items from '~/data/items'
+import { Slot, component$ } from '@builder.io/qwik'
 
 interface PropsTypes {
   title: string
@@ -12,11 +6,7 @@ interface PropsTypes {
   price: number
 }
 
-// import { MyContext } from '~/routes/cart'
-
 const Card = component$(({ title, imgSrc, price }: PropsTypes) => {
-  // const state = useContext(MyContext)
-
   return (
     <>
       <div

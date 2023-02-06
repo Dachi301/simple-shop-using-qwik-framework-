@@ -1,15 +1,32 @@
-import { $, component$, useClientEffect$, useContext } from '@builder.io/qwik'
-
-import PS5Img from '../../images/ps5.jpg'
+import {
+  $,
+  component$,
+  useClientEffect$,
+  useContext,
+  useStore,
+} from '@builder.io/qwik'
+import { useNavigate } from '@builder.io/qwik-city'
 
 import { CartContext } from '~/context/Cart'
 
 export default component$(() => {
   const state = useContext(CartContext)
+  const newState = useStore({ sum: 0 })
+  const nav = useNavigate()
 
-  // const handleDelete$ = $(() => {
-  //   state.cart.filter
-  // })
+  useClientEffect$(() => {
+    let nums: Array<number> = []
+    state.cart.forEach((item: any) => {
+      nums.push(item.price)
+    })
+    for (let num of nums) {
+      newState.sum += num
+    }
+  })
+
+  const handleRedirect$ = $((item: any) => {
+    nav.path = `/item/${item.id}`
+  })
 
   return (
     <div class={'w-full'}>
@@ -35,7 +52,10 @@ export default component$(() => {
                   >
                     <img
                       src={item.img}
-                      class={'aspect-[3/2] w-full object-contain'}
+                      class={
+                        'aspect-[3/2] w-full cursor-pointer object-contain'
+                      }
+                      onClick$={() => handleRedirect$(item)}
                     />
 
                     <div class={'flex flex-col justify-around'}>
@@ -60,10 +80,10 @@ export default component$(() => {
             )}
             {state.cartLength !== 0 && (
               <div class={'mb-[50px] flex flex-col items-start gap-[20px]'}>
-                <h1 class={'text-[3rem]'}>კალათა: </h1>
-                <p class={' text-[1.7rem]'}>ბალანსი: x</p>
-                <h1 class={'text-[24px]'}>ნივთები: {state.cart.length}</h1>
-                <p class={'text-[20px]'}>ჯამი: x</p>
+                <h1 class={'text-[24px]'}>
+                  ნივთები: {state.cart.length} (ცალი)
+                </h1>
+                <p class={'text-[24px]'}>ჯამი: {newState.sum}₾</p>
                 <button
                   class={
                     'w-full translate-y-0 rounded-[5px] bg-[#e7c128] px-[15px] py-[10px] text-[24px] transition-all active:translate-y-1 '
