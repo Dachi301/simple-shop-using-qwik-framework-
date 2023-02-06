@@ -42,6 +42,14 @@ export default component$(() => {
     }
   })
 
+  const handleDisableButton$ = $(() => {
+    ctxState.cart.forEach((element: any) => {
+      if (element.id === item[0].id) {
+        state.isDisabled = true
+      }
+    })
+  })
+
   const handleClick$ = $(() => {
     state.item = {
       id: item[0].id,
@@ -53,22 +61,12 @@ export default component$(() => {
 
     ctxState.cart.push(state.item)
     ctxState.cartLength += 1
-    ctxState.cart.forEach((element: any) => {
-      if (element.id === item[0].id) {
-        state.isDisabled = true
-      }
-    })
+    handleDisableButton$()
 
     console.log(state.item)
   })
 
-  useClientEffect$(() => {
-    ctxState.cart.forEach((element: any) => {
-      if (element.id === item[0].id) {
-        state.isDisabled = true
-      }
-    })
-  })
+  useClientEffect$(() => handleDisableButton$())
 
   return (
     <div>
