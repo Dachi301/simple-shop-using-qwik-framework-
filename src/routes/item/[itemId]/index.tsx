@@ -62,8 +62,6 @@ export default component$(() => {
     ctxState.cart.push(state.item)
     ctxState.cartLength += 1
     handleDisableButton$()
-
-    console.log(state.item)
   })
 
   useClientEffect$(() => handleDisableButton$())

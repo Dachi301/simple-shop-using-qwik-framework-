@@ -4,6 +4,7 @@ import {
   useClientEffect$,
   useContext,
   useStore,
+  useWatch$,
 } from '@builder.io/qwik'
 import { useNavigate } from '@builder.io/qwik-city'
 
@@ -15,7 +16,7 @@ export default component$(() => {
   const nav = useNavigate()
 
   useClientEffect$(() => {
-    let nums: Array<number> = []
+    const nums: Array<number> = []
     state.cart.forEach((item: any) => {
       nums.push(item.price)
     })
@@ -24,12 +25,18 @@ export default component$(() => {
     }
   })
 
+  useWatch$(({ track }) => {
+    track(() => newState.sum)
+  })
+
   const handleRedirect$ = $((item: any) => {
     nav.path = `/item/${item.id}`
   })
 
   const handleDelete$ = $((id: number) => {
+    const element = state.cart.filter((item: any) => item.id === id)
     state.cartLength -= 1
+    newState.sum -= element[0].price
     state.cart = state.cart.filter((item: any) => {
       return item.id !== id
     })

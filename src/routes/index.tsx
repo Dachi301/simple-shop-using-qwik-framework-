@@ -49,7 +49,7 @@ export default component$(() => {
       Array.isArray(Items) &&
       Items.filter((item: any) => {
         if (!state.searchTerm) {
-          console.log('')
+          return ''
           return ''
         } else if (
           item['title'].toLowerCase().includes(state.searchTerm.toLowerCase())
