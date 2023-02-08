@@ -28,6 +28,13 @@ export default component$(() => {
     nav.path = `/item/${item.id}`
   })
 
+  const handleDelete$ = $((id: number) => {
+    state.cartLength -= 1
+    state.cart = state.cart.filter((item: any) => {
+      return item.id !== id
+    })
+  })
+
   return (
     <div class={'w-full'}>
       <div
@@ -36,7 +43,7 @@ export default component$(() => {
         <div class={'mt-[50px] flex justify-center gap-[60px]'}>
           {/* card component */}
           <div class={'flex flex-col gap-[80px]'}>
-            {state.cartLength === 0 ? (
+            {state.cart.length === 0 ? (
               <div>
                 <h1 class={'h-full w-full text-center text-[3rem]'}>
                   კალათაში არ გვაქვს ნივთები :(
@@ -70,6 +77,7 @@ export default component$(() => {
                         class={
                           ' translate-y-0 rounded-[5px] bg-[red] p-[10px] text-white transition-all active:translate-y-1'
                         }
+                        onClick$={() => handleDelete$(item.id)}
                       >
                         წაშლა
                       </button>
@@ -78,7 +86,7 @@ export default component$(() => {
                 </div>
               ))
             )}
-            {state.cartLength !== 0 && (
+            {state.cart.length > 0 && (
               <div class={'mb-[50px] flex flex-col items-start gap-[20px]'}>
                 <h1 class={'text-[24px]'}>
                   ნივთები: {state.cart.length} (ცალი)
