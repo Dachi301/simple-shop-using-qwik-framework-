@@ -1,11 +1,4 @@
-import {
-  component$,
-  useClientEffect$,
-  useContext,
-  useWatch$,
-  useResource$,
-  useStore,
-} from '@builder.io/qwik'
+import { component$, useContext } from '@builder.io/qwik'
 import { useNavigate } from '@builder.io/qwik-city'
 import { CartContext } from '~/context/Cart'
 
