@@ -58,7 +58,7 @@ const Header = component$(() => {
                 <p className='text-[20px]'>ტოკენი</p>
                 <input
                   type='text'
-                  className='w-full rounded-[10px] border-0 bg-[#F3F3F4] py-[15px] px-[10px] text-[18px] outline-0'
+                  className='w-full rounded-[10px] border-0 bg-[#F3F3F4] py-[15px] px-[20px] text-[18px] outline-0'
                   placeholder='...'
                 />
               </div>
