@@ -1195,7 +1195,7 @@
     "source-map" "0.7.4"
     "vfile" "5.3.6"
 
-"@builder.io/qwik-react@0.1.1":
+"@builder.io/qwik-react@^0.1.1":
   "integrity" "sha512-zRbp8dEB2qvoH5HT5eSD7ULINJgpiV17989kulI7rCfDqDyE3HL5yOwR9UjVqfKzEL4x/H83uSgxPQiweKqkKQ=="
   "resolved" "https://registry.npmjs.org/@builder.io/qwik-react/-/qwik-react-0.1.1.tgz"
   "version" "0.1.1"
