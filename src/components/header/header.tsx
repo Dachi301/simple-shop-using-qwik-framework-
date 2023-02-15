@@ -9,6 +9,7 @@ const Header = component$(() => {
 
   const ctxState = useContext(CartContext)
   const store = useStore({ modalState: 'closed' })
+
   return (
     <>
       <header class='flex items-center justify-between bg-[#e7c128] px-[30px] py-[20px]'>
