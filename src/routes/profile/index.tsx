@@ -20,11 +20,7 @@ export default component$(() => {
           <p class={'mb-[10px] text-[26px]'}>ჩემი ტოკენი: token</p>
           <p class={'mb-[10px] text-[26px]'}>ბალანსი: x</p>
           <p class={'mb-[20px] text-center text-[26px]'}>ჩემი შენაძენები: </p>
-          <div
-            class={
-              'grid grid-cols-4 gap-x-[30px] gap-y-[30px] border border-[black]'
-            }
-          >
+          <div class={'grid grid-cols-4 gap-x-[30px] gap-y-[30px]'}>
             {Array.isArray(Items) &&
               Items.map((item: any) => (
                 <Card
