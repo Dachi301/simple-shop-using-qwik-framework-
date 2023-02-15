@@ -2,7 +2,7 @@ import { component$, PropFunction } from '@builder.io/qwik'
 import { Link } from '@builder.io/qwik-city'
 
 interface ButtonProps {
-  action$: PropFunction<() => void>
+  action$?: PropFunction<() => void>
 }
 
 export const Button = component$((props: ButtonProps) => {
