@@ -56,7 +56,7 @@ const Header = component$(() => {
             <h1 className='text-center text-[26px] font-bold'>ავტორიზაცია</h1>
             <div className='flex flex-col gap-[40px]'>
               <div>
-                <p className='text-[20px]'>ტოკენი</p>
+                <p className='text-[20px]'>საფულე</p>
                 <input
                   type='text'
                   className='w-full rounded-[10px] border-0 bg-[#F3F3F4] py-[15px] px-[20px] text-[18px] outline-0'
