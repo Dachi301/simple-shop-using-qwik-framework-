@@ -9,7 +9,7 @@ export const Button = component$((props: ButtonProps) => {
   return (
     <button
       class={
-        'w-[30%] translate-y-0 rounded-[20px] bg-[#e7c128] py-[5px] text-[2vh] text-black transition-all hover:bg-[#000] hover:text-[#e7c128] active:translate-y-1'
+        'w-[30%] translate-y-0 rounded-[20px] bg-[#e7c128] py-[5px] text-[2vh] text-black transition-all hover:bg-[#000] hover:text-[#e7c128] active:translate-y-1 xl:w-[50%] lg:w-[60%]'
       }
       onClick$={props.action$}
     >

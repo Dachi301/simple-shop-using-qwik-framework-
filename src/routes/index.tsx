@@ -50,7 +50,6 @@ export default component$(() => {
       Items.filter((item: any) => {
         if (!state.searchTerm) {
           return ''
-          return ''
         } else if (
           item['title'].toLowerCase().includes(state.searchTerm.toLowerCase())
         ) {
@@ -75,11 +74,11 @@ export default component$(() => {
           'relative flex h-full w-full flex-col items-center justify-center'
         }
       >
-        <div class={'relative mb-[50px] mt-[50px]'}>
+        <div class={'relative mb-[50px] mt-[50px] lg:w-[95vw] sm:w-[91.5vw]'}>
           <input
             type={'text'}
             class={
-              'h-[60px] w-[700px] rounded-[10px] border-2 border-[#e7c128] pl-[20px] pr-[50px] text-[20px] outline-0'
+              'h-[60px] w-[700px] rounded-[10px] border-2 border-[#e7c128] pl-[20px] pr-[50px] text-[20px] outline-0 lg:w-full'
             }
             placeholder='...'
             onInput$={handleChange$}
@@ -103,7 +102,7 @@ export default component$(() => {
         </div>
         <div
           class={
-            'mb-[50px] grid w-full grid-cols-4 gap-x-[30px] gap-y-[30px] px-[30px]'
+            'mb-[50px] grid w-full grid-cols-4 gap-x-[30px] gap-y-[30px] px-[30px] lg:grid-cols-3 lg:px-[25px] md:grid-cols-2 md:px-[20px] sm:grid-cols-1'
           }
         >
           {state.showItems === 0 && fetchItems()}
