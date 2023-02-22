@@ -52,7 +52,9 @@ export default component$(() => {
           <div class={'flex flex-col gap-[80px]'}>
             {state.cart.length === 0 ? (
               <div>
-                <h1 class={'h-full w-full text-center text-[3rem]'}>
+                <h1
+                  class={'h-full w-full text-center text-[3rem] md:text-[6vw]'}
+                >
                   კალათაში არ გვაქვს ნივთები :(
                 </h1>
               </div>
@@ -61,7 +63,7 @@ export default component$(() => {
                 <div class={'flex gap-[80px]'}>
                   <div
                     class={
-                      'flex w-[600px] flex-col gap-[20px] break-all	 border border-black p-[10px]	'
+                      'flex w-[600px] flex-col gap-[20px] break-all	 border border-black p-[10px]	md:w-full'
                     }
                   >
                     <img
@@ -75,7 +77,10 @@ export default component$(() => {
                     <div class={'flex flex-col justify-around'}>
                       <div class={'flex flex-col gap-[10px]'}>
                         <h1 class={'text-[20px] '}>ნივთი: {item.title}</h1>
-                        <p class={'text-[20px]'}>ფასი: {item.price}₾</p>
+                        <p class={'text-[20px]'}>
+                          ცალის ფასი: {item.price / item.items}₾
+                        </p>
+                        <p class={'text-[20px]'}>საბოლოო ფასი: {item.price}₾</p>
                         <p class={'text-[20px] text-green-600'}>
                           რაოდენობა: {item.items}x
                         </p>

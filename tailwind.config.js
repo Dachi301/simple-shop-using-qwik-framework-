@@ -10,6 +10,9 @@ module.exports = {
       xl: { max: '1500px' },
       // => @media (max-width: 1279px) { ... }
 
+      xllg: { max: '1200px' },
+      // => @media (max-width: 1023px) { ... }
+
       lg: { max: '1100px' },
       // => @media (max-width: 1023px) { ... }
 

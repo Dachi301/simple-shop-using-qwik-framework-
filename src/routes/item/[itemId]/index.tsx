@@ -68,12 +68,21 @@ export default component$(() => {
 
   return (
     <div>
-      <div class={'px-[30px]'}>
-        <div class={'relative flex h-full w-full gap-[100px]'}>
-          <div class={'mt-[50px] mb-[50px] flex gap-[100px]'}>
-            <img src={item[0]?.imgSrc} class={'h-[500px] object-cover'} />
+      <div class={'px-[30px] xllg:px-[20px]'}>
+        <div
+          class={'relative flex h-full w-full gap-[100px] xllg:justify-center'}
+        >
+          <div
+            class={
+              'mt-[50px] mb-[50px] flex gap-[100px] xllg:flex-col xllg:gap-[50px]'
+            }
+          >
+            <img
+              src={item[0]?.imgSrc}
+              class={'h-[500px] object-cover xllg:h-full'}
+            />
             <div class={'flex flex-col'}>
-              <h1 class={'text-[7em]'}>{item[0].title}</h1>
+              <h1 class={'text-[7em] md:text-[5em]'}>{item[0].title}</h1>
               <div class={'pl-[10px]'}>
                 <div class={'flex flex-col gap-[15px]'}>
                   <p class={'text-[22px]'}>
