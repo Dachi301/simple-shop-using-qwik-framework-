@@ -82,8 +82,8 @@ export default component$(() => {
               class={'h-[500px] object-cover xllg:h-full'}
             />
             <div class={'flex flex-col'}>
-              <h1 class={'text-[7em] md:text-[5em]'}>{item[0].title}</h1>
-              <div class={'pl-[10px]'}>
+              <h1 class={'text-[7em] md:text-[15vw]'}>{item[0].title}</h1>
+              <div class={'pl-[10px] md:pl-[0]'}>
                 <div class={'flex flex-col gap-[15px]'}>
                   <p class={'text-[22px]'}>
                     ფასი: {state.isDisabled ? item[0]?.price : state.itemPrice}{' '}
